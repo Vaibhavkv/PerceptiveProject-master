@@ -13,18 +13,24 @@ import java.util.ArrayList;
 
 public class loginActivity extends AppCompatActivity {
     int flag=0;
+
+    EditText etu, etp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        etu = findViewById(R.id.login_et_username);
+        etp = findViewById(R.id.login_et_password);
 
         ActionBar ab = getSupportActionBar();
         ab.hide();
     }
 
     public void login_bclk (View v) {
-        String enteredUsername = ((EditText)findViewById(R.id.login_et_username)).getText().toString().trim().toLowerCase();
-        String enteredPassword = ((EditText)findViewById(R.id.login_et_password)).getText().toString().trim().toLowerCase();
+        String enteredUsername = etu.getText().toString().trim().toLowerCase();
+        String enteredPassword = etp.getText().toString().trim().toLowerCase();
 
         TinyDB tinydb = new TinyDB(this);
         ArrayList<Object> userdata = tinydb.getListObject("userdata", user.class);
@@ -38,7 +44,10 @@ public class loginActivity extends AppCompatActivity {
             }
         }
         if(flag==0){
-            Toast.makeText(this,"Invalid credentials",Toast.LENGTH_LONG).show();
+            etu.setText("");
+            etp.setText("");
+            etp.setError("Invalid Credentials");
+            etu.setError("Invalid Credentials");
         }
     }
 
