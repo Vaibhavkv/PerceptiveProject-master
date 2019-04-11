@@ -56,7 +56,7 @@ public class fetch_details_artists extends AsyncTask<Void, Void, Void> {
                 JSONObject myResponse1 = new JSONObject(myResponse.get("artist").toString());
                 a1.name = myResponse1.get("name").toString();
                 JSONArray imagesArray = (JSONArray) myResponse1.get("image");
-                JSONObject image = (JSONObject) imagesArray.get(1);
+                JSONObject image = (JSONObject) imagesArray.get(2);
                 a1.image_url = image.get("#text").toString();
                 JSONObject bioResponse = new JSONObject(myResponse1.get("bio").toString());
                 a1.summary = bioResponse.get("summary").toString();

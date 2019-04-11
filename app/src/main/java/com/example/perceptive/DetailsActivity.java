@@ -2,6 +2,7 @@ package com.example.perceptive;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,6 +36,9 @@ public class DetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+
+        ActionBar ab = getSupportActionBar();
+        ab.hide();
 
         iv = findViewById(R.id.imageStuff);
         tvn = findViewById(R.id.tv_det_name);
