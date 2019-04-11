@@ -23,8 +23,8 @@ public class loginActivity extends AppCompatActivity {
     }
 
     public void login_bclk (View v) {
-        String enteredUsername = ((EditText)findViewById(R.id.login_et_username)).getText().toString().trim();
-        String enteredPassword = ((EditText)findViewById(R.id.login_et_password)).getText().toString().trim();
+        String enteredUsername = ((EditText)findViewById(R.id.login_et_username)).getText().toString().trim().toLowerCase();
+        String enteredPassword = ((EditText)findViewById(R.id.login_et_password)).getText().toString().trim().toLowerCase();
 
         TinyDB tinydb = new TinyDB(this);
         ArrayList<Object> userdata = tinydb.getListObject("userdata", user.class);
