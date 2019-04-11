@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class loginActivity extends AppCompatActivity {
     int flag=0;
-
+    public static String userid;
     EditText etu, etp;
 
     @Override
@@ -42,6 +42,7 @@ public class loginActivity extends AppCompatActivity {
         for(Object objs : userdata){
             user temp = (user)objs;
             if((temp.email.equals(enteredUsername))&&(temp.password.equals(enteredPassword))){
+                userid = temp.id;
                 flag=1;
                 Intent i = new Intent(this, homePageActivity.class);
                 startActivity(i);

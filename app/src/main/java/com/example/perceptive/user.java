@@ -1,7 +1,7 @@
 package com.example.perceptive;
 
 public class user {
-    int id;
+    String id;
     String name;
     String password;
     String email;
@@ -12,7 +12,7 @@ public class user {
         count++;
     }
 
-    user(int id,String name,String email,String password,String phone){
+    user(String id,String name,String email,String password,String phone){
         count++;
         this.id=id;
         this.name=name;
@@ -21,7 +21,7 @@ public class user {
         this.phone=phone;
     }
 
-    void register(int id,String name,String email,String password,String phone){
+    void register(String id,String name,String email,String password,String phone){
         this.id=id;
         this.name=name;
         this.password=password;

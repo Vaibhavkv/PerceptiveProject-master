@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -21,8 +22,10 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 import static com.example.perceptive.fetch_details_artists.a1;
+import static com.example.perceptive.loginActivity.userid;
 
 public class DetailsActivity extends AppCompatActivity {
 
@@ -30,8 +33,10 @@ public class DetailsActivity extends AppCompatActivity {
     TextView tvn, tvd, tvx;
     Button addb, shrb;
 
+    ArrayList<Object> preferencesdata;
     String name = "", desc = "", ext = "", imgurl = "";
     String mode = "", type = "-1";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,8 +79,18 @@ public class DetailsActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.played:
+                        item a = new item(userid,name,desc,ext,imgurl,type,"played");
+                        TinyDB tinydb = new TinyDB(DetailsActivity.this);
+                        preferencesdata = tinydb.getListObject("preferencesdata", item.class);
+                        preferencesdata.add((Object) a);
+                        tinydb.putListObject("preferencesdata", preferencesdata);
                         return true;
                     case R.id.wanna_play:
+                        item b = new item(userid,name,desc,ext,imgurl,type,"wanna play");
+                        TinyDB tinydb1 = new TinyDB(DetailsActivity.this);
+                        preferencesdata = tinydb1.getListObject("preferencesdata", item.class);
+                        preferencesdata.add((Object) b);
+                        tinydb1.putListObject("preferencesdata", preferencesdata);
                         return true;
                     default:
                         return false;

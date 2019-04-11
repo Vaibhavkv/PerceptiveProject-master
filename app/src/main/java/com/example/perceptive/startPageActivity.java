@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Vector;
@@ -21,17 +22,33 @@ public class startPageActivity extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
         ab.hide();
 
-        ArrayList<user> userdatatemp = new ArrayList<user>();
+        /*ArrayList<user> userdatatemp = new ArrayList<user>();
         ArrayList<Object> userdata = new ArrayList<Object>();
-        userdatatemp.add(new user(1,"Tom","tom@gmail.com","tom","1111111111"));
-        userdatatemp.add(new user(2,"Jack","jack@gmail.com","jack","2222222222"));
+        userdatatemp.add(new user("1","Tom","tom@gmail.com","tom","1111111111"));
+        userdatatemp.add(new user("2","Jack","jack@gmail.com","jack","2222222222"));
 
         for(user a : userdatatemp){
             userdata.add((Object)a);
         }
 
+        ArrayList<item> preferencesdatatemp = new ArrayList<item>();
+        ArrayList<Object> preferencesdata = new ArrayList<Object>();
+        //preferencesdata.add(new item("");
+
+        for(item a : preferencesdatatemp){
+            preferencesdata.add((Object)a);
+        }
+
         TinyDB tinydb = new TinyDB(this);
-        tinydb.putListObject("userdata", userdata);
+        tinydb.putListObject("preferencesdata", preferencesdata);
+        tinydb.putListObject("userdata", userdata);*/
+
+        /*TinyDB tinydb = new TinyDB(this);
+        ArrayList<Object> preferencesdata = tinydb.getListObject("preferencesdata", item.class);
+        for(Object objs : preferencesdata) {
+            item temp = (item) objs;
+            Toast.makeText(this,temp.userid+" "+temp.name,Toast.LENGTH_LONG).show();
+        }*/
     }
 
     public void login_clk(View v) {
