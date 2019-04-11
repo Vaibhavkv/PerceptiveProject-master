@@ -6,8 +6,14 @@ public class user {
     String password;
     String email;
     int phone;
+    static int count=0;
+
+    user(){
+        count++;
+    }
 
     user(int id,String name,String email,String password,int phone){
+        count++;
         this.id=id;
         this.name=name;
         this.password=password;
