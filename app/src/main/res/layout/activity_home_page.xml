@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".homePageActivity">
+
+    <TextView
+        android:id="@+id/home_tv_myhome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:text="My Home"
+        android:textAlignment="center"
+        android:textColor="@color/ferra"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.design.button.MaterialButton
+        android:id="@+id/home_srch_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:onClick="search_bclk"
+        android:text="SEARCH"
+        android:textColor="@color/ferra"
+        app:backgroundTint="@color/froly"
+        app:cornerRadius="32dp"
+        app:icon="@drawable/ic_search_black_24dp"
+        app:iconTint="@color/ferra"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/ferra"
+        app:strokeWidth="1dp" />
+
+
+</android.support.constraint.ConstraintLayout>

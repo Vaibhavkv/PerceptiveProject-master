@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".startPageActivity"
+    android:background="@color/froly">
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="228dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/tv_perceptive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="248dp"
+        android:layout_marginEnd="44dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Perceptive"
+        android:textAlignment="center"
+        android:textColor="@color/ferra"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <android.support.design.button.MaterialButton
+        android:id="@+id/button_login"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="256dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="166dp"
+        android:layout_marginEnd="162dp"
+        android:fontFamily="sans-serif-black"
+        android:onClick="login_clk"
+        android:text="LOGIN"
+        android:textColor="@color/ferra"
+        app:backgroundTint="@color/froly"
+        app:cornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_perceptive"
+        app:strokeColor="@color/ferra"
+        app:strokeWidth="1dp" />
+
+    <android.support.design.button.MaterialButton
+        android:id="@+id/button_register"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="256dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="224dp"
+        android:layout_marginEnd="162dp"
+        android:fontFamily="sans-serif-black"
+        android:text="REGISTER"
+        android:textColor="@color/ferra"
+        app:backgroundTint="@color/froly"
+        app:cornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_perceptive"
+        app:strokeColor="@color/ferra"
+        app:strokeWidth="1dp" />
+</android.support.constraint.ConstraintLayout>

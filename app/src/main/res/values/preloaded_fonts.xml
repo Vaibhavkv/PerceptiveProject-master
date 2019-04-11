@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/amita_bold</item>
+        <item>@font/nova_round</item>
+        <item>@font/roboto_black</item>
+    </array>
+</resources>

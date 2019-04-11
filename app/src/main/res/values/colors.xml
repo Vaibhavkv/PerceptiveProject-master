@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#A4E38F</color>
+    <color name="froly">#F58792</color>
+    <color name="ferra">#703E43</color>
+    <color name="indigo">#3f51bf</color>
+</resources>

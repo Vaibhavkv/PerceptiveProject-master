@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyTheme" parent="Theme.MaterialComponents.Light">
+        <item name="android:windowBackground">@color/froly</item>
+        <item name="android:itemBackground">@color/indigo</item>
+        <item name="android:textColor">@color/ferra</item>
+    </style>
+</resources>
