@@ -34,7 +34,7 @@ public class loginActivity extends AppCompatActivity {
 
     public void login_bclk (View v) {
         String enteredUsername = etu.getText().toString().trim().toLowerCase();
-        String enteredPassword = etp.getText().toString().trim().toLowerCase();
+        String enteredPassword = etp.getText().toString().trim();
 
         TinyDB tinydb = new TinyDB(this);
         ArrayList<Object> userdata = tinydb.getListObject("userdata", user.class);
