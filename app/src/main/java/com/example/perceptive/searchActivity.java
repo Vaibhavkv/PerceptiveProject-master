@@ -23,7 +23,9 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import static com.example.perceptive.fetch_details_artists.a1;
+import static com.example.perceptive.fetch_details_movies.a2;
 import static com.example.perceptive.fetch_similar_artists.arr;
+import static com.example.perceptive.fetch_similar_movies.arr1;
 
 public class searchActivity extends AppCompatActivity {
 
@@ -144,14 +146,9 @@ public class searchActivity extends AppCompatActivity {
                                 search_popup.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_movie_black_24dp, 0,0,0);
                                 return true;
                             case R.id.type_songs:
-                                search_popup.setText("SONGS");
+                                search_popup.setText("ARTISTS");
                                 type = 1;
                                 search_popup.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_music_note_black_24dp, 0,0,0);
-                                return true;
-                            case R.id.type_books:
-                                search_popup.setText("BOOKS");
-                                type = 2;
-                                search_popup.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_book_black_24dp, 0,0,0);
                                 return true;
                             default:
                                 return false;
@@ -167,7 +164,12 @@ public class searchActivity extends AppCompatActivity {
         search_lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                search_topic.setText(arr[position]);
+                if (type == 1) {
+                    search_topic.setText(arr[position]);
+                }
+                else if (type == 0) {
+                    search_topic.setText(arr1[position]);
+                }
                 return true;
             }
         });
@@ -175,34 +177,65 @@ public class searchActivity extends AppCompatActivity {
         search_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                fetch_details_artists fda = null;
-                fda = new fetch_details_artists(arr[position]);
-                fda.execute();
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                if (type == 1){
+                    fetch_details_artists fda = null;
+                    fda = new fetch_details_artists(arr[position]);
+                    fda.execute();
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Intent i = new Intent(searchActivity.this, DetailsActivity.class);
+                    i.putExtra("Name", a1.name);
+                    i.putExtra("Desc", a1.summary);
+                    i.putExtra("Extra", a1.listeners);
+                    i.putExtra("Img", a1.image_url);
+                    i.putExtra("Mode", "1");
+
+                    if (type == 0) {
+                        i.putExtra("Type", "0");
+                    }
+                    else if (type == 1) {
+                        i.putExtra("Type", "1");
+                    }
+                    else {
+                        i.putExtra("Type", "-1");
+                    }
+
+                    startActivity(i);
+                    pb.setVisibility(View.GONE);
                 }
-                Intent i = new Intent(searchActivity.this, DetailsActivity.class);
-                i.putExtra("Name", a1.name);
-                i.putExtra("Desc", a1.summary);
-                i.putExtra("Extra", a1.listeners);
-                i.putExtra("Img", a1.image_url);
-                i.putExtra("Mode", "1");
 
                 if (type == 0) {
-                    i.putExtra("Type", "0");
-                }
-                else if (type == 1) {
-                    i.putExtra("Type", "1");
-                }
-                else {
-                    i.putExtra("Type", "-1");
-                }
+                    fetch_details_movies fdm = null;
+                    fdm = new fetch_details_movies(arr1[position]);
+                    fdm.execute();
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Intent i = new Intent(searchActivity.this, DetailsActivity.class);
+                    i.putExtra("Name", a2.name);
+                    i.putExtra("Desc", a2.summary);
+                    i.putExtra("Extra", a2.listeners);
+                    i.putExtra("Img", a2.image_url);
+                    i.putExtra("Mode", "1");
 
-                startActivity(i);
-                pb.setVisibility(View.GONE);
+                    if (type == 0) {
+                        i.putExtra("Type", "0");
+                    }
+                    else if (type == 1) {
+                        i.putExtra("Type", "1");
+                    }
+                    else {
+                        i.putExtra("Type", "-1");
+                    }
 
+                    startActivity(i);
+                    pb.setVisibility(View.GONE);
+                }
             }
         });
 
@@ -211,6 +244,7 @@ public class searchActivity extends AppCompatActivity {
     public void search_bclk(View v) {
 
         fetch_similar_artists fd = null;
+        fetch_similar_movies fm = null;
         pb.setVisibility(View.VISIBLE);
         if (type == -1) {
             Toast.makeText(context, "Set Type", Toast.LENGTH_SHORT).show();
@@ -218,19 +252,17 @@ public class searchActivity extends AppCompatActivity {
         }
         if (type == 1) {
             fd = new fetch_similar_artists(search_topic.getText().toString().trim());
+            fd.execute();
         }
         if (type == 0) {
-            return;
+            fm = new fetch_similar_movies(search_topic.getText().toString().trim());
+            fm.execute();
         }
-        if (type == 2) {
-            return;
-        }
-        fd.execute();
 
     }
 
-    public static void update_list(String arr[]) {
-        ArrayAdapter<String> searchAA = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, arr);
+    public static void update_list(String arrx[]) {
+        ArrayAdapter<String> searchAA = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, arrx);
         search_lv.setAdapter(searchAA);
         pb.setVisibility(View.GONE);
         search_lv.setVisibility(View.VISIBLE);

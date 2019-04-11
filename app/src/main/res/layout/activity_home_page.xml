@@ -41,5 +41,49 @@
         app:strokeColor="@color/ferra"
         app:strokeWidth="1dp" />
 
+    <android.support.design.button.MaterialButton
+        android:id="@+id/home_art_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="296dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="sans-serif-medium"
+        android:onClick="art_clk"
+        android:text="MY ARTISTS"
+        android:textColor="@color/ferra"
+        app:backgroundTint="@color/froly"
+        app:cornerRadius="32dp"
+        app:icon="@drawable/ic_music_note_black_24dp"
+        app:iconTint="@color/ferra"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/ferra"
+        app:strokeWidth="1dp" />
+
+    <android.support.design.button.MaterialButton
+        android:id="@+id/home_mov_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="sans-serif-medium"
+        android:onClick="mov_clk"
+        android:text="MY MOVIES"
+        android:textColor="@color/ferra"
+        app:backgroundTint="@color/froly"
+        app:cornerRadius="32dp"
+        app:icon="@drawable/ic_movie_black_24dp"
+        app:iconTint="@color/ferra"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_art_btn"
+        app:strokeColor="@color/ferra"
+        app:strokeWidth="1dp" />
+
 
 </android.support.constraint.ConstraintLayout>

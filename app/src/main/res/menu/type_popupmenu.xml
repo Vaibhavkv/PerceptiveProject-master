@@ -13,14 +13,7 @@
         android:id="@+id/type_songs"
         android:enabled="true"
         android:icon="@drawable/ic_music_note_black_24dp"
-        android:title="SONGS"
-        android:visible="true"
-        app:showAsAction="always|withText" />
-    <item
-        android:id="@+id/type_books"
-        android:enabled="true"
-        android:icon="@drawable/ic_book_black_24dp"
-        android:title="BOOKS"
+        android:title="ARTISTS"
         android:visible="true"
         app:showAsAction="always|withText" />
 </menu>

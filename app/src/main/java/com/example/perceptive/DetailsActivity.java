@@ -1,5 +1,6 @@
 package com.example.perceptive;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.ActionBar;
@@ -27,7 +28,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     ImageView iv;
     TextView tvn, tvd, tvx;
-    Button addb;
+    Button addb, shrb;
 
     String name = "", desc = "", ext = "", imgurl = "";
     String mode = "", type = "-1";
@@ -45,6 +46,7 @@ public class DetailsActivity extends AppCompatActivity {
         tvx = findViewById(R.id.tv_extra);
         tvd = findViewById(R.id.tv_det_det);
         addb = findViewById(R.id.det_btn_add);
+        shrb = findViewById(R.id.det_btn_shr);
 
         name = getIntent().getExtras().getString("Name");
         desc = getIntent().getExtras().getString("Desc");
@@ -81,5 +83,14 @@ public class DetailsActivity extends AppCompatActivity {
             }
         });
         pm.show();
+    }
+
+    public void shr_clk (View v) {
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        String shareBody = name;
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, name);
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+        startActivity(Intent.createChooser(sharingIntent, "Share via"));
     }
 }

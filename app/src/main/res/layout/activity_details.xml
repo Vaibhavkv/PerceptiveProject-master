@@ -14,7 +14,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
         android:fontFamily="sans-serif-black"
-        android:onClick="add_clk"
+        android:onClick="shr_clk"
         android:text="SHARE"
         android:textColor="@color/ferra"
         app:backgroundTint="@color/froly"
@@ -53,8 +53,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars"
-        android:contentDescription="@string/details" />
+        tools:srcCompat="@tools:sample/avatars"/>
 
     <TextView
         android:id="@+id/tv_det_name"
