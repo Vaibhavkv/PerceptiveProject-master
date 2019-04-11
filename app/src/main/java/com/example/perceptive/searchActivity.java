@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +23,8 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static com.example.perceptive.fetch_data.arr;
 
 public class searchActivity extends AppCompatActivity {
 
@@ -90,6 +93,14 @@ public class searchActivity extends AppCompatActivity {
             }
         });
 
+        search_lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                search_topic.setText(arr[position]);
+                return true;
+            }
+        });
+
     }
 
     public void search_bclk(View v) {
@@ -101,7 +112,7 @@ public class searchActivity extends AppCompatActivity {
             return;
         }
         if (type == 1) {
-            fd = new fetch_data(search_topic.getText().toString());
+            fd = new fetch_data(search_topic.getText().toString().trim());
         }
         if (type == 0) {
             return;
