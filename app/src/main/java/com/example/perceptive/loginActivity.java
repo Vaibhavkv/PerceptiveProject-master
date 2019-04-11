@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -23,6 +24,9 @@ public class loginActivity extends AppCompatActivity {
 
         etu = findViewById(R.id.login_et_username);
         etp = findViewById(R.id.login_et_password);
+
+        etu.setText("tom@gmail.com");
+        etp.setText("tom");
 
         ActionBar ab = getSupportActionBar();
         ab.hide();

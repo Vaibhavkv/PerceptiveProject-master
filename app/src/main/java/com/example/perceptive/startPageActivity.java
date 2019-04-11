@@ -1,6 +1,12 @@
 package com.example.perceptive;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
+import android.provider.Settings;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +26,8 @@ public class startPageActivity extends AppCompatActivity {
 
         ActionBar ab = getSupportActionBar();
         ab.hide();
+
+        checkPermission();
 
         ArrayList<user> userdatatemp = new ArrayList<user>();
         ArrayList<Object> userdata = new ArrayList<Object>();
@@ -42,5 +50,16 @@ public class startPageActivity extends AppCompatActivity {
     public void reg_clk(View v) {
         Intent i = new Intent(startPageActivity.this, RegActivity.class);
         startActivity(i);
+    }
+
+    private void checkPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (!(ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED)) {
+                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                        Uri.parse("package:" + getPackageName()));
+                startActivity(intent);
+                finish();
+            }
+        }
     }
 }
