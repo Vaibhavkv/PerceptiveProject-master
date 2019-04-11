@@ -3,10 +3,12 @@ package com.example.perceptive;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.ActionMode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class RegActivity extends AppCompatActivity {
     EditText et1;
@@ -29,15 +31,15 @@ public class RegActivity extends AppCompatActivity {
         et4 = findViewById(R.id.et_Reg_phno_et);
 
         b = findViewById(R.id.reg_button_reg);
-        b.setEnabled(false);
+        //b.setEnabled(false);
     }
 
-    public void reg_bclk(View view){
+    public void reg_clk(View view) {
         String name = et1.getText().toString().trim();
         String email = et2.getText().toString().trim();
         String password = et3.getText().toString().trim();
         String phone = et4.getText().toString().trim();
 
-        
+        Toast.makeText(this, "something", Toast.LENGTH_SHORT).show();
     }
 }
