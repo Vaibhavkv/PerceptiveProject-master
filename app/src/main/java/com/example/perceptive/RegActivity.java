@@ -28,7 +28,7 @@ public class RegActivity extends AppCompatActivity {
         et3 = findViewById(R.id.et_reg_pswd_et);
         et4 = findViewById(R.id.et_Reg_phno_et);
 
-        b = findViewById(R.id.button_register);
+        b = findViewById(R.id.reg_button_reg);
         b.setEnabled(false);
     }
 
