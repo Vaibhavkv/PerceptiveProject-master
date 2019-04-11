@@ -49,6 +49,7 @@ public class startPageActivity extends AppCompatActivity {
             item temp = (item) objs;
             Toast.makeText(this,temp.userid+" "+temp.name,Toast.LENGTH_LONG).show();
         }*/
+
     }
 
     public void login_clk(View v) {
