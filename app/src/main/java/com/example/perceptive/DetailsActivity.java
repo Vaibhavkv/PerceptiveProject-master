@@ -69,6 +69,8 @@ public class DetailsActivity extends AppCompatActivity {
         if (mode.equals("0")) {
             addb.setVisibility(View.GONE);
         }
+
+
     }
 
     public void add_clk(View v) {
@@ -103,8 +105,8 @@ public class DetailsActivity extends AppCompatActivity {
     public void shr_clk (View v) {
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
-        String shareBody = name;
-        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, name);
+        String shareBody = name+"\n"+imgurl;
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, name+"\n"+imgurl);
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
         startActivity(Intent.createChooser(sharingIntent, "Share via"));
     }

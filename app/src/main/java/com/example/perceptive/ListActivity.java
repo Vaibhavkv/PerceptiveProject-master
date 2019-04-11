@@ -1,16 +1,21 @@
 package com.example.perceptive;
 
+import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import static com.example.perceptive.fetch_details_artists.a1;
+import static com.example.perceptive.fetch_similar_artists.arr;
 import static com.example.perceptive.loginActivity.userid;
 
 public class ListActivity extends AppCompatActivity {
@@ -25,8 +30,10 @@ public class ListActivity extends AppCompatActivity {
         lvw = findViewById(R.id.lv_wanna);
         lvp = findViewById(R.id.lv_played);
 
-        ArrayList<String> al1 = new ArrayList<String>();
-        ArrayList<String> al2 = new ArrayList<String>();
+        getSupportActionBar().hide();
+
+        final ArrayList<String> al1 = new ArrayList<String>();
+        final ArrayList<String> al2 = new ArrayList<String>();
 
         TinyDB tinydb = new TinyDB(this);
         ArrayList<Object> preferencesdata = tinydb.getListObject("preferencesdata", item.class);
@@ -47,6 +54,50 @@ public class ListActivity extends AppCompatActivity {
         lvp.setAdapter(aa2);
         setListViewHeightBasedOnChildren(lvw);
         setListViewHeightBasedOnChildren(lvp);
+
+        lvw.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                fetch_details_artists fda = null;
+                fda = new fetch_details_artists(al1.get(position));
+                fda.execute();
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Intent i = new Intent(ListActivity.this, DetailsActivity.class);
+                i.putExtra("Name", a1.name);
+                i.putExtra("Desc", a1.summary);
+                i.putExtra("Extra", a1.listeners);
+                i.putExtra("Img", a1.image_url);
+                i.putExtra("Mode", "0");
+
+                startActivity(i);
+            }
+        });
+
+        lvp.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                fetch_details_artists fda = null;
+                fda = new fetch_details_artists(al2.get(position));
+                fda.execute();
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Intent i = new Intent(ListActivity.this, DetailsActivity.class);
+                i.putExtra("Name", a1.name);
+                i.putExtra("Desc", a1.summary);
+                i.putExtra("Extra", a1.listeners);
+                i.putExtra("Img", a1.image_url);
+                i.putExtra("Mode", "0");
+
+                startActivity(i);
+            }
+        });
     }
 
     public static void setListViewHeightBasedOnChildren(ListView listView)

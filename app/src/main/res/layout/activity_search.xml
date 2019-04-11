@@ -114,7 +114,9 @@
             app:icon="@drawable/ic_mic_black_24dp"
             app:iconTint="@color/ferra"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/search_tv_search" />
+            app:layout_constraintTop_toBottomOf="@+id/search_tv_search"
+            app:strokeColor="@color/design_default_color_primary"
+            app:strokeWidth="1dp" />
 
 
     </android.support.constraint.ConstraintLayout>
