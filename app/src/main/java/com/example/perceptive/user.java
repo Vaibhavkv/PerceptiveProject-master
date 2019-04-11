@@ -5,14 +5,14 @@ public class user {
     String name;
     String password;
     String email;
-    int phone;
+    String phone;
     static int count=0;
 
     user(){
         count++;
     }
 
-    user(int id,String name,String email,String password,int phone){
+    user(int id,String name,String email,String password,String phone){
         count++;
         this.id=id;
         this.name=name;
@@ -21,7 +21,7 @@ public class user {
         this.phone=phone;
     }
 
-    void register(int id,String name,String email,String password,int phone){
+    void register(int id,String name,String email,String password,String phone){
         this.id=id;
         this.name=name;
         this.password=password;
