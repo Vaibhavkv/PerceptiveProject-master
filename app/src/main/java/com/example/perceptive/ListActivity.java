@@ -98,6 +98,29 @@ public class ListActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        /*TODO VAIBHAV
+        **TODO Use TinyDB: Remove entry from index: int position (given to you by function)
+        **TODO Example: arrayList.get(position) <- Remove
+        **TODO Notify Adapter
+        **TODO Do for each
+        **TODO Push+Whatsapp+Delete TODO comments
+        */
+        lvw.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                //TODO VAIBHAV For LVW
+                return true;
+            }
+        });
+
+        lvp.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                //TODO VAIBHAV For LVP
+                return true;
+            }
+        });
     }
 
     public static void setListViewHeightBasedOnChildren(ListView listView)
