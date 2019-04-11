@@ -21,6 +21,8 @@ import static com.example.perceptive.loginActivity.userid;
 public class ListActivity extends AppCompatActivity {
     String type;
     ListView lvw, lvp;
+    ArrayAdapter<String> aa1;
+    ArrayAdapter<String> aa2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +50,9 @@ public class ListActivity extends AppCompatActivity {
 
         }
 
-        ArrayAdapter<String> aa1 = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,al1);
+        aa1 = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,al1);
         lvw.setAdapter(aa1);
-        ArrayAdapter<String> aa2 = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,al2);
+        aa2 = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,al2);
         lvp.setAdapter(aa2);
         setListViewHeightBasedOnChildren(lvw);
         setListViewHeightBasedOnChildren(lvp);
@@ -109,7 +111,22 @@ public class ListActivity extends AppCompatActivity {
         lvw.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                //TODO VAIBHAV For LVW
+                String temp = al1.get(position);
+                al1.remove(position);
+                aa1.notifyDataSetChanged();
+                TinyDB tinydb = new TinyDB(ListActivity.this);
+                ArrayList<Object>  preferencesdatatemp = tinydb.getListObject("preferencesdata", item.class);
+                ArrayList<item> preferencesdata = new ArrayList<item>();
+                int pos=0;
+                for(Object objs : preferencesdatatemp){
+                    item temp1 = (item) objs;
+                    if((temp1.userid.equals(userid))&&(temp1.type.equals(type))&&(temp1.option.equals("wanna play"))&&(temp1.name.equals(temp))){
+                        break;
+                    }
+                    pos++;
+                }
+                preferencesdatatemp.remove(pos);
+                tinydb.putListObject("preferencesdata",preferencesdatatemp);
                 return true;
             }
         });
@@ -117,7 +134,22 @@ public class ListActivity extends AppCompatActivity {
         lvp.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                //TODO VAIBHAV For LVP
+                String temp = al2.get(position);
+                al2.remove(position);
+                aa2.notifyDataSetChanged();
+                TinyDB tinydb = new TinyDB(ListActivity.this);
+                ArrayList<Object>  preferencesdatatemp = tinydb.getListObject("preferencesdata", item.class);
+                ArrayList<item> preferencesdata = new ArrayList<item>();
+                int pos=0;
+                for(Object objs : preferencesdatatemp){
+                    item temp1 = (item) objs;
+                    if((temp1.userid.equals(userid))&&(temp1.type.equals(type))&&(temp1.option.equals("played"))&&(temp1.name.equals(temp))){
+                        break;
+                    }
+                    pos++;
+                }
+                preferencesdatatemp.remove(pos);
+                tinydb.putListObject("preferencesdata",preferencesdatatemp);
                 return true;
             }
         });

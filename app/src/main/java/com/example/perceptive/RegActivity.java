@@ -66,7 +66,8 @@ public class RegActivity extends AppCompatActivity {
         if(phone.length()==0){
             et4.setError("Cannot be blank");
         }
-        if ((name.matches("[a-zA-Z]+")) && (phone.length() == 10) && (name.length()!=0) && (email.length()!=0) && (password.length()!=0)){
+        if ((name.matches("[a-zA-Z]+")) && (phone.length() == 10) &&
+                (name.length()!=0) && (email.length()!=0) && (password.length()!=0)){
             user a = new user(String.valueOf(user.count++), name, email, password, phone);
             TinyDB tinydb = new TinyDB(this);
             ArrayList<Object> userdata = tinydb.getListObject("userdata", user.class);
