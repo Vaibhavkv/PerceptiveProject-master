@@ -15,26 +15,27 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class fetch_data extends AsyncTask<Void, Void, Void> {
+public class fetch_similar_artists extends AsyncTask<Void, Void, Void> {
 
     String topic;
 
-    public fetch_data(String topic) {
+    public fetch_similar_artists(String topic) {
         this.topic = topic;
     }
 
     static String data = "";
-    public static String arr[] = new String[10];
+    public static String arr[];
 
     @Override
     protected Void doInBackground(Void... voids) {
-
+        arr = new String[10];
         try {
 
             String lastfm1 = "http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=";
             String lastfm2 = "&limit=10&api_key=d4d8ce6b7f878903fd54602d00a66f0d&format=json";
-            topic.trim();
-            topic.replace(" ", "%20");
+            topic = topic.trim();
+            topic = topic.replace(" ", "%20");
+            topic = topic.replace("&", "and");
             String lastfm = lastfm1 + topic + lastfm2;
 
             URL urlForGetRequest = new URL(lastfm);
@@ -58,10 +59,11 @@ public class fetch_data extends AsyncTask<Void, Void, Void> {
                     arr[i] = artist.get("name").toString();
                 }
             } else {
-                System.out.println("GET NOT WORKED");
+                arr= new String[]{"Invalid Search"};
             }
         }
         catch (Exception e) {
+            arr= new String[]{"New Number. Who dis?"};
             Log.d("ErrorCustom", e.toString());
         }
 

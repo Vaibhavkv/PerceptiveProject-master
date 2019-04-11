@@ -5,15 +5,11 @@ import android.content.Intent;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.view.MotionEventCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -21,17 +17,13 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 
-import static com.example.perceptive.fetch_data.arr;
+import static com.example.perceptive.fetch_details_artists.a1;
+import static com.example.perceptive.fetch_similar_artists.arr;
 
 public class searchActivity extends AppCompatActivity {
 
@@ -117,6 +109,15 @@ public class searchActivity extends AppCompatActivity {
                 speechRecognizer.startListening(speechRecognizerIntent);
             }
         });
+        voice.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                search_topic.setText("");
+                return true;
+            }
+        });
+
+
         search_lv = findViewById(R.id.search_lv);
         search_lv.setVisibility(View.GONE);
 
@@ -171,18 +172,52 @@ public class searchActivity extends AppCompatActivity {
             }
         });
 
+        search_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                fetch_details_artists fda = null;
+                fda = new fetch_details_artists(arr[position]);
+                fda.execute();
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Intent i = new Intent(searchActivity.this, DetailsActivity.class);
+                i.putExtra("Name", a1.name);
+                i.putExtra("Desc", a1.summary);
+                i.putExtra("Extra", a1.listeners);
+                i.putExtra("Img", a1.image_url);
+                i.putExtra("Mode", "1");
+
+                if (type == 0) {
+                    i.putExtra("Type", "0");
+                }
+                else if (type == 1) {
+                    i.putExtra("Type", "1");
+                }
+                else {
+                    i.putExtra("Type", "-1");
+                }
+
+                startActivity(i);
+                pb.setVisibility(View.GONE);
+
+            }
+        });
+
     }
 
     public void search_bclk(View v) {
 
-        fetch_data fd = null;
+        fetch_similar_artists fd = null;
         pb.setVisibility(View.VISIBLE);
         if (type == -1) {
             Toast.makeText(context, "Set Type", Toast.LENGTH_SHORT).show();
             return;
         }
         if (type == 1) {
-            fd = new fetch_data(search_topic.getText().toString().trim());
+            fd = new fetch_similar_artists(search_topic.getText().toString().trim());
         }
         if (type == 0) {
             return;

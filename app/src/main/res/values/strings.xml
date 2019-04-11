@@ -13,4 +13,5 @@
         completions."
     </string>
     <string name="login">LOGIN</string>
+    <string name="details">Details</string>
 </resources>

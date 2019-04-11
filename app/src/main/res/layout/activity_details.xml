@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailsActivity">
+
+    <android.support.design.button.MaterialButton
+        android:id="@+id/det_btn_shr"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="186dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="sans-serif-black"
+        android:onClick="add_clk"
+        android:text="SHARE"
+        android:textColor="@color/ferra"
+        app:backgroundTint="@color/froly"
+        app:cornerRadius="16dp"
+        app:icon="@drawable/ic_share_black_24dp"
+        app:iconTint="@color/ferra"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:strokeColor="@color/ferra"
+        app:strokeWidth="1dp" />
+
+    <android.support.design.button.MaterialButton
+        android:id="@+id/det_btn_add"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="186dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="sans-serif-black"
+        android:onClick="add_clk"
+        android:text="ADD"
+        android:textColor="@color/ferra"
+        app:backgroundTint="@color/froly"
+        app:cornerRadius="16dp"
+        app:icon="@drawable/ic_playlist_add_black_24dp"
+        app:iconTint="@color/ferra"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="@color/ferra"
+        app:strokeWidth="1dp" />
+
+    <ImageView
+        android:id="@+id/imageStuff"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars"
+        android:contentDescription="@string/details" />
+
+    <TextView
+        android:id="@+id/tv_det_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="NAME"
+        android:textSize="48sp"
+        android:maxLines="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageStuff" />
+
+    <TextView
+        android:id="@+id/tv_det_det"
+        android:layout_width="match_parent"
+        android:layout_height="222dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:text="TextView"
+        android:textAlignment="viewStart"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_det_name" />
+
+    <TextView
+        android:id="@+id/tv_extra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="1234567890"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_det_name" />
+
+
+</android.support.constraint.ConstraintLayout>
