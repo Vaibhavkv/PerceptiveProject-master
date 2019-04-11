@@ -137,5 +137,26 @@
         app:strokeColor="@color/ferra"
         app:strokeWidth="1dp" />
 
+    <android.support.design.button.MaterialButton
+        android:id="@+id/reg_button_cancel"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="256dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="162dp"
+        android:fontFamily="sans-serif-black"
+        android:onClick="regCancel_clk"
+        android:text="Go BACK"
+        android:textColor="@color/ferra"
+        app:backgroundTint="@color/froly"
+        app:cornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_button_reg"
+        app:strokeColor="@color/ferra"
+        app:strokeWidth="1dp" />
+
 
 </android.support.constraint.ConstraintLayout>

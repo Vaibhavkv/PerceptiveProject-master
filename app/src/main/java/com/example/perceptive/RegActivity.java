@@ -1,7 +1,9 @@
 package com.example.perceptive;
 
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ActionMode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +19,9 @@ public class RegActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reg);
+
+        ActionBar ab = getSupportActionBar();
+        ab.hide();
 
         et1 = findViewById(R.id.et_reg_name_et);
         et2 = findViewById(R.id.et_reg_em_et);
