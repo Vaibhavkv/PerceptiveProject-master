@@ -1,107 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
-    tools:context=".searchActivity">
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <android.support.design.button.MaterialButton
-        android:id="@+id/search_search_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:fontFamily="sans-serif-medium"
-        android:onClick="search_bclk"
-        android:text="SEARCH"
-        android:textColor="@color/ferra"
-        app:backgroundTint="@color/froly"
-        app:cornerRadius="32dp"
-        app:icon="@drawable/ic_search_black_24dp"
-        app:iconTint="@color/ferra"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_et_topic"
-        app:strokeColor="@color/ferra"
-        app:strokeWidth="1dp" />
-
-    <TextView
-        android:id="@+id/search_tv_search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif-light"
-        android:gravity="center"
-        android:text="Search"
-        android:textAlignment="center"
-        android:textColor="@color/ferra"
-        android:textSize="48sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/search_et_topic"
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:focusable="false"
-        android:hint="Enter Your Favourite"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_tv_search">
+        android:layout_height="match_parent"
+        tools:context=".searchActivity">
 
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/search_et_topic_et"
+        <android.support.design.button.MaterialButton
+            android:id="@+id/search_search_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="sans-serif-medium"
+            android:onClick="search_bclk"
+            android:text="SEARCH"
+            android:textColor="@color/ferra"
+            app:backgroundTint="@color/froly"
+            app:cornerRadius="32dp"
+            app:icon="@drawable/ic_search_black_24dp"
+            app:iconTint="@color/ferra"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_et_topic"
+            app:strokeColor="@color/ferra"
+            app:strokeWidth="1dp" />
+
+        <TextView
+            android:id="@+id/search_tv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:text="Search"
+            android:textAlignment="center"
+            android:textColor="@color/ferra"
+            android:textSize="48sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.054"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/search_et_topic"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </android.support.design.widget.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:focusable="false"
+            android:hint="Enter Your Favourite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_tv_search">
 
-    <ListView
-        android:id="@+id/search_lv"
-        android:layout_width="395dp"
-        android:layout_height="514dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/froly"
-        android:scrollbars="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_search_btn" />
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/search_et_topic_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.button.MaterialButton
-        android:id="@+id/search_popup"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif-medium"
-        android:onClick="search_bclk"
-        android:text="SELECT TYPE"
-        android:textColor="@color/ferra"
-        app:backgroundTint="@color/froly"
-        app:cornerRadius="32dp"
-        app:icon="@drawable/ic_code_black_24dp"
-        app:iconTint="@color/ferra"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_et_topic"
-        app:strokeColor="@color/ferra"
-        app:strokeWidth="1dp" />
+        <ListView
+            android:id="@+id/search_lv"
+            android:layout_width="395dp"
+            android:layout_height="514dp"
+            android:layout_marginTop="32dp"
+            android:background="@color/froly"
+            android:scrollbars="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_search_btn" />
 
-    <ProgressBar
-        android:id="@+id/search_progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:progressTint="@color/ferra"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <android.support.design.button.MaterialButton
+            android:id="@+id/search_popup"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:onClick="search_bclk"
+            android:text="SELECT TYPE"
+            android:textColor="@color/ferra"
+            app:backgroundTint="@color/froly"
+            app:cornerRadius="32dp"
+            app:icon="@drawable/ic_code_black_24dp"
+            app:iconTint="@color/ferra"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_et_topic"
+            app:strokeColor="@color/ferra"
+            app:strokeWidth="1dp" />
+
+        <ProgressBar
+            android:id="@+id/search_progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:progressTint="@color/ferra"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-</android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+
+
+</android.support.v4.widget.NestedScrollView>
