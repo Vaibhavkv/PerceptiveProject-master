@@ -32,6 +32,13 @@ public class loginActivity extends AppCompatActivity {
         ab.hide();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        etu.setText("");
+        etp.setText("");
+    }
+
     public void login_bclk (View v) {
         String enteredUsername = etu.getText().toString().trim().toLowerCase();
         String enteredPassword = etp.getText().toString().trim();

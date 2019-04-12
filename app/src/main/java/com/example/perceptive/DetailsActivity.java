@@ -64,7 +64,12 @@ public class DetailsActivity extends AppCompatActivity {
         tvx.setText(ext);
         tvd.setText(desc);
 
-        Picasso.get().load(imgurl).into(iv);
+        try{
+            Picasso.get().load(imgurl).into(iv);
+            Thread.sleep(1000);
+        }catch (Exception e){
+            Picasso.get().load(R.drawable.logo).into(iv);
+        }
 
         if (mode.equals("0")) {
             addb.setVisibility(View.GONE);

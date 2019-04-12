@@ -22,6 +22,7 @@ public class RegActivity extends AppCompatActivity {
     EditText et3;
     EditText et4;
     Button b;
+    CheckBox cbcb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +37,20 @@ public class RegActivity extends AppCompatActivity {
         et3 = findViewById(R.id.et_reg_pswd_et);
         et4 = findViewById(R.id.et_Reg_phno_et);
 
+        cbcb = findViewById(R.id.cb_tnc);
+
         b = findViewById(R.id.reg_button_reg);
         b.setEnabled(false);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        et1.setText("");
+        et2.setText("");
+        et3.setText("");
+        et4.setText("");
+        cbcb.setChecked(false);
     }
 
     public void reg_clk(View view) {

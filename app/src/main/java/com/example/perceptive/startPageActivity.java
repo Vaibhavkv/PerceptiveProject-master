@@ -1,10 +1,14 @@
 package com.example.perceptive;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
 
@@ -61,4 +65,36 @@ public class startPageActivity extends AppCompatActivity {
         Intent i = new Intent(startPageActivity.this, RegActivity.class);
         startActivity(i);
     }
+
+
+    private static final int PRESS_INTERVAL = 1000;
+    private long mUpKeyEventTime = 0;
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (KeyEvent.KEYCODE_VOLUME_DOWN == event.getKeyCode()) {
+            if ((event.getEventTime() - mUpKeyEventTime) < PRESS_INTERVAL) {
+                AlertDialog alertDialog = new AlertDialog.Builder(startPageActivity.this).create();
+                alertDialog.setTitle("Made By");
+                alertDialog.setMessage("Rajit Roy\nRaghav Srivastava\nVaibhav KV");
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();
+            }
+            return true;
+        } else if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if(KeyEvent.KEYCODE_VOLUME_UP == keyCode){
+            mUpKeyEventTime = event.getEventTime();
+        }
+        return super.onKeyUp(keyCode, event);
+    }
+
 }
