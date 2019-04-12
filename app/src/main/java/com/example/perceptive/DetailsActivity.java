@@ -32,7 +32,7 @@ public class DetailsActivity extends AppCompatActivity {
     ImageView iv;
     TextView tvn, tvd, tvx;
     Button addb, shrb;
-
+    int flag=0;
     ArrayList<Object> preferencesdata;
     String name = "", desc = "", ext = "", imgurl = "";
     String mode = "", type = "-1";
@@ -64,12 +64,7 @@ public class DetailsActivity extends AppCompatActivity {
         tvx.setText(ext);
         tvd.setText(desc);
 
-        try{
-            Picasso.get().load(imgurl).into(iv);
-            Thread.sleep(1000);
-        }catch (Exception e){
-            Picasso.get().load(R.drawable.logo).into(iv);
-        }
+        Picasso.get().load(imgurl).into(iv);
 
         if (mode.equals("0")) {
             addb.setVisibility(View.GONE);
@@ -86,18 +81,38 @@ public class DetailsActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.played:
+                        flag=0;
                         item a = new item(userid,name,desc,ext,imgurl,type,"played");
                         TinyDB tinydb = new TinyDB(DetailsActivity.this);
                         preferencesdata = tinydb.getListObject("preferencesdata", item.class);
-                        preferencesdata.add((Object) a);
-                        tinydb.putListObject("preferencesdata", preferencesdata);
+                        for(Object objs : preferencesdata){
+                            item temp = (item)objs;
+                            if((temp.userid.equals(userid))&&(temp.name.equals(name))&&(temp.option.equals("played"))){
+                                flag=1;
+                                break;
+                            }
+                        }
+                        if(flag==0) {
+                            preferencesdata.add((Object) a);
+                            tinydb.putListObject("preferencesdata", preferencesdata);
+                        }
                         return true;
                     case R.id.wanna_play:
+                        flag=0;
                         item b = new item(userid,name,desc,ext,imgurl,type,"wanna play");
                         TinyDB tinydb1 = new TinyDB(DetailsActivity.this);
                         preferencesdata = tinydb1.getListObject("preferencesdata", item.class);
-                        preferencesdata.add((Object) b);
-                        tinydb1.putListObject("preferencesdata", preferencesdata);
+                        for(Object objs : preferencesdata){
+                            item temp = (item)objs;
+                            if((temp.userid.equals(userid))&&(temp.name.equals(name))&&(temp.option.equals("wanna play"))){
+                                flag=1;
+                                break;
+                            }
+                        }
+                        if(flag==0) {
+                            preferencesdata.add((Object) b);
+                            tinydb1.putListObject("preferencesdata", preferencesdata);
+                        }
                         return true;
                     default:
                         return false;
