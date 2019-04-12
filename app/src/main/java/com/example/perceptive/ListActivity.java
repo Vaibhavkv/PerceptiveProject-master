@@ -54,8 +54,6 @@ public class ListActivity extends AppCompatActivity {
         lvw.setAdapter(aa1);
         aa2 = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,al2);
         lvp.setAdapter(aa2);
-        setListViewHeightBasedOnChildren(lvw);
-        setListViewHeightBasedOnChildren(lvp);
 
         lvw.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -109,7 +107,7 @@ public class ListActivity extends AppCompatActivity {
                 aa1.notifyDataSetChanged();
                 TinyDB tinydb = new TinyDB(ListActivity.this);
                 ArrayList<Object>  preferencesdatatemp = tinydb.getListObject("preferencesdata", item.class);
-                ArrayList<item> preferencesdata = new ArrayList<item>();
+                //ArrayList<item> preferencesdata = new ArrayList<item>();
                 int pos=0;
                 for(Object objs : preferencesdatatemp){
                     item temp1 = (item) objs;
@@ -118,7 +116,14 @@ public class ListActivity extends AppCompatActivity {
                     }
                     pos++;
                 }
+                item temp2 = (item)preferencesdatatemp.get(pos);
+                temp2.option="played";
+                al2.add(temp2.name);
+                aa1.notifyDataSetChanged();
+                aa2.notifyDataSetChanged();
                 preferencesdatatemp.remove(pos);
+                preferencesdatatemp.add((Object)temp2);
+
                 tinydb.putListObject("preferencesdata",preferencesdatatemp);
                 return true;
             }
@@ -148,34 +153,4 @@ public class ListActivity extends AppCompatActivity {
         });
     }
 
-    public static void setListViewHeightBasedOnChildren(ListView listView)
-    {
-        ListAdapter listAdapter = listView.getAdapter();
-        if (listAdapter == null)
-            return;
-
-        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.UNSPECIFIED);
-        int totalHeight=0;
-        View view = null;
-
-        for (int i = 0; i < listAdapter.getCount(); i++)
-        {
-            view = listAdapter.getView(i, view, listView);
-
-            if (i == 0)
-                view.setLayoutParams(new ViewGroup.LayoutParams(desiredWidth,
-                        ViewGroup.LayoutParams.MATCH_PARENT));
-
-            view.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
-            totalHeight += view.getMeasuredHeight();
-
-        }
-
-        ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height = totalHeight + ((listView.getDividerHeight()) * (listAdapter.getCount()));
-
-        listView.setLayoutParams(params);
-        listView.requestLayout();
-
-    }
 }

@@ -96,6 +96,9 @@ public class DetailsActivity extends AppCompatActivity {
                             preferencesdata.add((Object) a);
                             tinydb.putListObject("preferencesdata", preferencesdata);
                         }
+                        else{
+                            Toast.makeText(DetailsActivity.this,"Item already added",Toast.LENGTH_SHORT).show();
+                        }
                         return true;
                     case R.id.wanna_play:
                         flag=0;
@@ -112,6 +115,9 @@ public class DetailsActivity extends AppCompatActivity {
                         if(flag==0) {
                             preferencesdata.add((Object) b);
                             tinydb1.putListObject("preferencesdata", preferencesdata);
+                        }
+                        else{
+                            Toast.makeText(DetailsActivity.this,"Item already added",Toast.LENGTH_SHORT).show();
                         }
                         return true;
                     default:

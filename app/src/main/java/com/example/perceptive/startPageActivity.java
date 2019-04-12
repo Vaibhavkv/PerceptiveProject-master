@@ -26,9 +26,9 @@ public class startPageActivity extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
         ab.hide();
 
-        /*ArrayList<user> userdatatemp = new ArrayList<user>();
+        ArrayList<user> userdatatemp = new ArrayList<user>();
         ArrayList<Object> userdata = new ArrayList<Object>();
-        userdatatemp.add(new user("1","Tom","tom@gmail.com","tom","1111111111"));
+        /*userdatatemp.add(new user("1","Tom","tom@gmail.com","tom","1111111111"));
         userdatatemp.add(new user("2","Jack","jack@gmail.com","jack","2222222222"));
 
         for(user a : userdatatemp){
