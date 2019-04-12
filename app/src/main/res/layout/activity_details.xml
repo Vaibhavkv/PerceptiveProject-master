@@ -63,7 +63,6 @@
         android:layout_marginTop="24dp"
         android:text="NAME"
         android:textSize="48sp"
-        android:maxLines="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageStuff" />
 

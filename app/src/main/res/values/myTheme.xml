@@ -4,5 +4,6 @@
         <item name="android:windowBackground">@color/froly</item>
         <item name="android:itemBackground">@color/indigo</item>
         <item name="android:textColor">@color/ferra</item>
+        <item name="colorPrimaryDark">@color/froly</item>
     </style>
 </resources>
