@@ -6,9 +6,9 @@ The app is built using Android studio 3.3 and uses TinyDB for database. The APIs
 (Minimum SDK version: 28)
 
 ## Some screens from the app:
-![Login](https://raw.githubusercontent.com/Vaibhavkv/PerceptiveProject-master/blob/master/images/login.png)
+![Login](https://raw.githubusercontent.com/Vaibhavkv/PerceptiveProject-master/master/images/login.png)
 
-![Home](https://raw.githubusercontent.com/Vaibhavkv/PerceptiveProject-master/blob/master/images/home.png)
+![Home](https://raw.githubusercontent.com/Vaibhavkv/PerceptiveProject-master/master/images/Home.png)
 
-![Search](https://raw.githubusercontent.com/Vaibhavkv/PerceptiveProject-master/blob/master/images/search.png)
+![Search](https://raw.githubusercontent.com/Vaibhavkv/PerceptiveProject-master/master/images/search.png)
 
